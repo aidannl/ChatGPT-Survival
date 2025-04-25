@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Survive the Swarm - Arcade Edition</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { margin: 0; background: black; color: lime; font-family: monospace; text-align: center; }
+    canvas { display: block; margin: 0 auto; background: #000022; touch-action: none; }
+    .controls {
+      position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: space-between; padding: 0 30px;
+    }
+    .dpad, .fire-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .btn {
+      width: 60px; height: 60px; background: rgba(0,255,0,0.2); color: lime;
+      border: 2px solid lime; font-size: 20px; font-weight: bold;
+      display: flex; justify-content: center; align-items: center;
+      border-radius: 10px; user-select: none;
+    }
+    .btn:active {
+      background: lime; color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Survive the Swarm</h1>
+  <canvas id="gameCanvas"></canvas>
+  <div class="controls">
+    <div class="dpad">
+      <div class="btn" ontouchstart="touchStart('up')" ontouchend="touchEnd('up')">↑</div>
+      <div style="display:flex; gap:10px;">
+        <div class="btn" ontouchstart="touchStart('left')" ontouchend="touchEnd('left')">←</div>
+        <div class="btn" ontouchstart="touchStart('down')" ontouchend="touchEnd('down')">↓</div>
+        <div class="btn" ontouchstart="touchStart('right')" ontouchend="touchEnd('right')">→</div>
+      </div>
+    </div>
+    <div class="fire-btn">
+      <div class="btn" style="width: 80px;" ontouchstart="fireBullet()">FIRE</div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
